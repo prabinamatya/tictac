@@ -26,8 +26,12 @@ public class TicTacToeGame {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		do {
+			aiEntersOAsMove(createBoard, moves);
+			numOfMoves++; // count ai move
 			do {
 				try {
+					System.out.println("**************************");
+					ttt.printBoard(createBoard);
 					System.out.println("Please enter your value (1 - 9) only.=>");
 					line = br.readLine();
 					numEntered = (int) Integer.valueOf(line);
@@ -44,10 +48,8 @@ public class TicTacToeGame {
 			} while (range == false);
 
 			numOfMoves++;// count user move
-			aiEntersOAsMove(createBoard, moves);
-			numOfMoves++; // count ai move
 
-			ttt.printBoard(createBoard);
+//			ttt.printBoard(createBoard);
 		} while (!didGameEnd(createBoard, moves) && numOfMoves < 9);
 
 	}
