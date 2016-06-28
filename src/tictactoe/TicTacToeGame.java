@@ -49,9 +49,6 @@ public class TicTacToeGame {
 
 			ttt.printBoard(createBoard);
 		} while (!didGameEnd(createBoard, moves) && numOfMoves < 9);
-		System.out.println("\n");
-		System.out.println("moves = " + moves);
-		System.out.println("num of moves = " + numOfMoves);
 
 	}
 
