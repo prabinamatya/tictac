@@ -40,7 +40,7 @@ public class TicTacToeGame {
 						System.out.println("Invalid position. Please try again! ");
 					} else {
 						range = true;
-						range = userEntersXAsMoveAndUnoccupied(numEntered, createBoard, moves);
+						range = userEntersXAsMoveAndUnoccupied(numEntered, createBoard);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -49,9 +49,10 @@ public class TicTacToeGame {
 
 			numOfMoves++;// count user move
 
-//			ttt.printBoard(createBoard);
 		} while (!didGameEnd(createBoard, moves) && numOfMoves < 9);
-
+		System.out.println("\n");
+ 		System.out.println("moves = " + moves);
+ 		System.out.println("num of moves = " + numOfMoves);
 	}
 
 	private static boolean didGameEnd(char[][] createBoard, List<Integer> moves) {
@@ -72,13 +73,12 @@ public class TicTacToeGame {
 		createBoard[row][col] = 'o';
 	}
 
-	private static boolean userEntersXAsMoveAndUnoccupied(int numEntered, char[][] createBoard, List<Integer> moves) {
+	private static boolean userEntersXAsMoveAndUnoccupied(int numEntered, char[][] createBoard) {
 		int row, col;
 		row = (numEntered - 1) / createBoard.length;
 		col = (numEntered - 1) % createBoard.length;
 		if (unoccupied(createBoard, row, col)) {
 			createBoard[row][col] = 'x';
-			moves.add(numEntered);
 			return true;
 		}
 		return false;
